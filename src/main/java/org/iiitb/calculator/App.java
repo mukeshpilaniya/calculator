@@ -1,6 +1,5 @@
 package org.iiitb.calculator;
 
-import java.util.Scanner;
 
 public class App 
 {
@@ -13,65 +12,57 @@ public class App
     {
         return (a*b);
     }
-    public static int divide(int a,int b)
-    {
-        return (a/b);
+    public static double divide(int a, int b) {
+        double result;
+        if (b == 0) {
+            throw new IllegalArgumentException("Divisor cannot divide by zero");
+        } else {
+            result = Double.valueOf(a)/Double.valueOf(b);
+        }
+        return result;
     }
     public static void main(String[] args)
     {
-        int num1,num2,choice,ans;
+            int num1,num2,choice,ans;
 
-        Scanner sc=new Scanner(System.in);
+            System.out.println("\nEnter:\n 1 for Addition\n 2 for Subtraction:\n 3 for Multiplication\n 4 for division and 5 to exit\n");
 
-        while(true) {
-
-            System.out.println("Enter 1 for Addition\n, 2 for Subtraction\n, 3 for Multiplication\n, 4 for division and 5 to exit\n");
-
-            choice=sc.nextInt();
+            choice=Integer.valueOf(args[2]);
 
             switch (choice)
             {
                 case 1:
-                    System.out.println("Enter the first number:");
-                    num1=sc.nextInt();
-                    System.out.println("Enter the second number:");
-                    num2=sc.nextInt();
+                    num1=Integer.valueOf(args[0]);
+                    num2=Integer.valueOf(args[1]);
                     ans=add(num1,num2);
-                    System.out.println("Addition: "+ans);
+                    System.out.println("\nAddition: "+ans);
                     break;
 
                 case 2:
-                    System.out.println("Enter the first number: ");
-                    num1=sc.nextInt();
-                    System.out.println("Enter the second number: ");
-                    num2=sc.nextInt();
+
+                    num1=Integer.valueOf(args[0]);
+                    num2=Integer.valueOf(args[1]);
                     ans=diff(num1,num2);
                     System.out.println("Difference: "+ans);
                     break;
                 case 3:
-                    System.out.println("Enter the first number: ");
-                    num1=sc.nextInt();
-                    System.out.println("Enter the second number: ");
-                    num2=sc.nextInt();
+
+                    num1=Integer.valueOf(args[0]);
+                    num2=Integer.valueOf(args[1]);
                     ans=product(num1,num2);
                     System.out.println("Product: "+ans);
                     break;
                 case 4:
-                    System.out.println("Enter the first number: ");
-                    num1=sc.nextInt();
-                    System.out.println("Enter the second number: ");
-                    num2=sc.nextInt();
-                    ans=divide(num1,num2);
+
+                    num1=Integer.valueOf(args[0]);
+                    num2=Integer.valueOf(args[1]);
+                    ans= (int) divide(num1,num2);
                     System.out.println("Division: "+ans);
                     break;
                 case 5:
                     System.out.println("Bye!");
                     System.exit(0);break;
-                default:System.out.println("Enter a valid choice!\n");
+                default:System.out.println("Enter a valid choice!");
             }
-
-        }
-
-
     }
 }
