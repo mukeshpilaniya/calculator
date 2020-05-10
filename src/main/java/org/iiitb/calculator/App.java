@@ -66,6 +66,5 @@ public class App
                     System.exit(0);break;
                 default:System.out.println("Enter a valid choice!");
             }
-            while(true);
     }
 }
