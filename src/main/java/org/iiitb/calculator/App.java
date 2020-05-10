@@ -22,7 +22,9 @@ public class App
         return result;
     }
     public static void main(String[] args)
-    {
+    {       if(args.length == 0){
+                while (true);
+            }
             int num1,num2,choice,ans;
 
             System.out.println("\nEnter:\n 1 for Addition\n 2 for Subtraction:\n 3 for Multiplication\n 4 for division and 5 to exit\n");
@@ -64,5 +66,6 @@ public class App
                     System.exit(0);break;
                 default:System.out.println("Enter a valid choice!");
             }
+            while(true);
     }
 }
